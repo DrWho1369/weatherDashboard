@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+}
+h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 3em; /* You can adjust the font size as needed */
+  color: White;
+  background: linear-gradient(to right, blue, rgb(50, 3, 83));
+  padding: 10px 0px;
+}
