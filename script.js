@@ -95,16 +95,20 @@ $(document).ready(function () {
      * conditions
      */
     forecast.empty();
-    forecast.append("<h5 id='header5Day'>5 Day Forecast: </h5>");
+    forecast.append(
+      "<h5 id='header5Day' class='h3 fw-bold'>5 Day Forecast: </h5>"
+    );
 
     for (let i = 7; i <= 39; i += 8) {
-      const { dt_txt, weather, main } = data.list[i];
+      let { dt_txt, weather, main } = data.list[i];
+      let dt_txt_split = dt_txt.split(" ");
+      dt_txt_0 = dt_txt_split[0];
       const iconURL = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
       const tempC = (main.temp - 273.15).toFixed(2);
 
       const forecastDay = $(`
-            <div class='forecastDay col'>
-                <div class='date fw-bold'>${dt_txt}</div>
+            <div class='forecastDay col bg-secondary text-white m-2 p-4'>
+                <div class='date fw-bold'>${dt_txt_0}</div>
                 <div class='icon'><img src=${iconURL}></div>
                 <div class='temp'>Temperature: ${tempC}°C</div>
                 <div class='humidity'>Humidity: ${main.humidity}%</div>
