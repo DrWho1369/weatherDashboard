@@ -73,12 +73,13 @@ $(document).ready(function () {
 
     let todayWeather = `
     <div id='todayWeather'>
-      <h2 id='city'>${city}</h2>
-      <div id='date'>${dayjs().format("dddd, MMMM D, YYYY")}</div>
-      <div id='icon'><img src="${iconURL}"></div>
-      <div id='temp'>Temperature: ${tempC}°C</div>
-      <div id='humidity'>Humidity: ${humidity}%</div>
-      <div id='wind'>Wind Speed: ${wind}MPH</div>
+      <h2 id='city' class='h1 fw-bold'>${city} ${dayjs().format(
+      "DD/MM/YYYY"
+    )}<img src="${iconURL}"></h2>
+      <div id='date'></div>
+      <div id='temp' class='pb-4'>Temperature: ${tempC}°C</div>
+      <div id='humidity' class='pb-4'>Humidity: ${humidity}%</div>
+      <div id='wind' class='pb-2'>Wind Speed: ${wind}MPH</div>
     </div>
   `;
     todayContainer.append(todayWeather);
@@ -103,7 +104,7 @@ $(document).ready(function () {
 
       const forecastDay = $(`
             <div class='forecastDay col'>
-                <div class='date'>${dt_txt}</div>
+                <div class='date fw-bold'>${dt_txt}</div>
                 <div class='icon'><img src=${iconURL}></div>
                 <div class='temp'>Temperature: ${tempC}°C</div>
                 <div class='humidity'>Humidity: ${main.humidity}%</div>
@@ -122,7 +123,9 @@ $(document).ready(function () {
     let history = JSON.parse(localStorage.getItem("cities")) || [];
     $("#history").empty();
     for (let i = 0; i < history.length; i++) {
-      let historyButton = $("<button class='historyButton'>");
+      let historyButton = $(
+        "<button class='historyButton btn btn-outline-secondary mb-2'>"
+      );
       historyButton.text(history[i]);
       $("#history").append(historyButton);
 

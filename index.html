@@ -16,7 +16,7 @@
 
   <body>
     <header
-      class="container-fluid text-center text-blue bg-light weather-header"
+      class="container-fluid p-0 m-0 text-center text-blue bg-light weather-header"
     >
       <h1>Weather Dashboard</h1>
       <h4 id="date"></h4>
@@ -27,22 +27,22 @@
     <div class="container-fluid p-0 m-0">
       <div class="row p-5">
         <aside class="col-lg-3">
-          <h2 id="form-heading" class="rm-label">Search for a City:</h2>
+          <h2 id="form-heading" class="rm-label h1 fw-bold">Search for a City:</h2>
           <form id="search-form" class="form">
             <div class="form-inline form-group">
-              <div class="input-group pb-3">
+              <div class="input-group">
                 <input
-                  class="form-input weather-search input-group-text"
+                  class="col-12 form-input weather-search input-group-text"
                   type="text"
                   id="search-input"
                   placeholder="London"
                   aria-labelledby="form-heading"
                   aria-controls="today forecast"
                 />
-                <div class="input-group-append">
+                <div class="col-12 d-grid mt-2">
                   <button
                     type="submit"
-                    class="btn btn-info search-button m-2"
+                    class="btn btn-info search-button"
                     id="search-button"
                     aria-label="submit search"
                   >
@@ -56,18 +56,16 @@
           <div class="list-group" id="history"></div>
         </aside>
 
-        <div class="col-lg-4">
+        <div class="col-lg-9">
           <section
             id="today"
-            class="text-center pb-4 text-bg-warning"
+            class="p-4 border border-black""
             role="region"
             aria-live="polite"
           ></section>
-        </div>
-        <div class="col-lg-5 forecast">
           <section
             id="forecast"
-            class="row text-bg-secondary"
+            class="p-4 row y"
             role="region"
             aria-live="polite"
           ></section>
