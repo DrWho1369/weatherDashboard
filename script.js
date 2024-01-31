@@ -16,5 +16,8 @@ $(document).ready(function () {
     timeEl.text(dayjs().format("h:mm A"));
   }
 
+  function weatherApiCall() {
+    currentURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
+  }
   setDay();
 });
