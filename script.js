@@ -27,6 +27,18 @@ $(document).ready(function () {
       });
   }
 
+  function forecastApiCall() {
+    currentURL = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKey}`;
+
+    fetch(currentURL)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        displayForecast(data);
+      });
+  }
+
   function displayCurrentWeather(data) {
     $("#today").empty();
     let icon = data.weather[0].icon;
@@ -61,7 +73,7 @@ $(document).ready(function () {
       if (history.length > 0) {
         city = history[0];
         weatherApiCall();
-        // getForecast();
+        forecastApiCall();
       }
     }
   }
@@ -83,7 +95,7 @@ $(document).ready(function () {
       displayHistory();
 
       weatherApiCall();
-      // getForecast();
+      forecastApiCall();
     }
   });
 
