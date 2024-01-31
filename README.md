@@ -2,6 +2,10 @@
 
 Welcome to the Weather Dashboard, a dynamic web application designed to provide users with current weather conditions and a 5-day forecast for multiple cities. This dashboard utilizes HTML, JavaScript, jQuery, and the OpenWeather API to offer a user-friendly experience.
 
+
+https://github.com/DrWho1369/weatherDashboard/assets/125075858/af6813d2-729a-4813-97fb-9bd8cfd1a380
+
+
 ## Features
 
 1. **Search for Cities:** Users can search for cities and view current weather conditions as well as a 5-day forecast.
