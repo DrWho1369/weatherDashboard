@@ -165,6 +165,12 @@ $(document).ready(function () {
     }
   });
 
+  $("#clear-button").on("click", function (event) {
+    event.preventDefault();
+    $("#history").empty();
+    localStorage.clear();
+  });
+
   $("#history").on("click", ".historyButton", function (event) {
     /* The code `$("#history").on("click", ".historyButton", function (event) { ... })` is an event
   listener that is triggered when a button with the class "historyButton" inside the element with
