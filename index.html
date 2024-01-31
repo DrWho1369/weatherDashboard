@@ -16,7 +16,7 @@
 
   <body>
     <header
-      class="container-fluid text-center text-white bg-dark p-2 weather-header"
+      class="container-fluid text-center text-blue bg-light weather-header"
     >
       <h1>Weather Dashboard</h1>
       <h4 id="date"></h4>
@@ -24,17 +24,15 @@
     </header>
 
     <!-- max-width for ultra wide resolutions -->
-    <div class="container-fluid">
-      <div class="row">
-        <aside class="col-lg-3 pb-3">
-          <h2 id="form-heading" class="mt-1 h3 form-label">
-            Search for a City:
-          </h2>
+    <div class="container-fluid p-0 m-0">
+      <div class="row p-5">
+        <aside class="col-lg-3">
+          <h2 id="form-heading" class="rm-label">Search for a City:</h2>
           <form id="search-form" class="form">
             <div class="form-inline form-group">
               <div class="input-group pb-3">
                 <input
-                  class="form-input weather-search"
+                  class="form-input weather-search input-group-text"
                   type="text"
                   id="search-input"
                   placeholder="London"
@@ -44,7 +42,7 @@
                 <div class="input-group-append">
                   <button
                     type="submit"
-                    class="btn search-button"
+                    class="btn btn-info search-button m-2"
                     id="search-button"
                     aria-label="submit search"
                   >
@@ -58,21 +56,21 @@
           <div class="list-group" id="history"></div>
         </aside>
 
-        <div class="col-lg-9 pb-3">
-          <div class="row align-items-start">
-            <section
-              id="today"
-              class="col-lg-3 mt-3"
-              role="region"
-              aria-live="polite"
-            ></section>
-            <section
-              id="forecast"
-              class="row col-lg-9 mt-3"
-              role="region"
-              aria-live="polite"
-            ></section>
-          </div>
+        <div class="col-lg-4">
+          <section
+            id="today"
+            class="text-center pb-4 text-bg-warning"
+            role="region"
+            aria-live="polite"
+          ></section>
+        </div>
+        <div class="col-lg-5 forecast">
+          <section
+            id="forecast"
+            class="row text-bg-secondary"
+            role="region"
+            aria-live="polite"
+          ></section>
         </div>
       </div>
     </div>
