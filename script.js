@@ -18,7 +18,7 @@ $(document).ready(function () {
 
   function weatherApiCall() {
     currentURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
-    fetch(currentqueryURL)
+    fetch(currentURL)
       .then(function (response) {
         return response.json();
       })
@@ -40,7 +40,7 @@ $(document).ready(function () {
 
     todayWeather.append("<h2 id='city'>" + city + "</h2>");
     todayWeather.append(
-      "<div id='date'>" + currentDay.format("dddd, MMMM D, YYYY") + "</div>"
+      "<div id='date'>" + dayjs().format("dddd, MMMM D, YYYY") + "</div>"
     );
     todayWeather.append("<div id='icon'><img src=" + iconURL + "></div>");
     todayWeather.append("<div id='temp'>Temperature: " + tempC + "°C</div>");
@@ -48,6 +48,22 @@ $(document).ready(function () {
     todayWeather.append("<div id='wind'>Wind Speed: " + wind + "MPH</div>");
 
     $("#today").append(todayWeather);
+  }
+
+  function displayHistory() {
+    let history = JSON.parse(localStorage.getItem("cities")) || [];
+    $("#history").empty();
+    for (let i = 0; i < history.length; i++) {
+      let historyButton = $("<button class='historyButton'>");
+      historyButton.text(history[i]);
+      $("#history").append(historyButton);
+
+      if (history.length > 0) {
+        city = history[0];
+        weatherApiCall();
+        // getForecast();
+      }
+    }
   }
 
   $("#search-button").on("click", function (event) {
@@ -66,8 +82,8 @@ $(document).ready(function () {
 
       displayHistory();
 
-      getWeather();
-      getForecast();
+      weatherApiCall();
+      // getForecast();
     }
   });
 
