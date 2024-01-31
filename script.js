@@ -1,20 +1,20 @@
-var searchButtonEl = $("#search-button");
-var textInput = "";
+$(document).ready(function () {
+  // Declare variables
+  let dateEl = $("#date");
+  let timeEl = $("#time");
+  let todayEl = $("#today");
+  let forecastEl = $("#forecast");
+  let historyEl = $("#history");
 
-//   Get the value of the text input
-function getTextInput() {
-  textInput = $("#search-input").val();
-}
+  let APIKey = "cdff13d48c1ee8584b1173383a7f5341";
 
-// call the api key with this value as the location
-function callApi() {}
+  let city;
+  let currentURL;
 
-// Return the relevant information in the main section div
-// todday api call in today
-// store the name as a new button in the aside that can call this function
+  function setDay() {
+    dateEl.text(dayjs().format("dddd, MMMM D, YYYY"));
+    timeEl.text(dayjs().format("h:mm A"));
+  }
 
-searchButtonEl.on("click", function () {
-  console.log("clicked");
-  getTextInput();
-  callApi();
+  setDay();
 });
