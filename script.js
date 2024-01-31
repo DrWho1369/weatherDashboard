@@ -18,6 +18,14 @@ $(document).ready(function () {
 
   function weatherApiCall() {
     currentURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKey}`;
+    fetch(currentqueryURL)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        displayCurrentWeather(data);
+      });
   }
+
   setDay();
 });
